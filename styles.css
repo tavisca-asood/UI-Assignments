@@ -1,0 +1,49 @@
+input,button,textarea,select{
+    width:25%;  
+    padding: 0.5em 1em 0.5em 1em;
+    margin-left: 1.2em;
+    margin-bottom: 1em;
+    font-size: 1.5em;   
+    border: 0;
+}
+.gender{
+    width:25%;
+    font-size: 1.2em;
+}
+input[type="radio"]{
+    margin-left:0.2em;
+    width:1em;
+}
+
+input:required{
+    border-left: 4px solid #cc3333;
+}
+input:focus:invalid, input:focus:invalid:focus{
+    color: #cc3333;
+    border-color: #cc3333;
+}
+.invalid{
+    display: none;
+    padding: 0 1em 0.5em 1em;
+    color: #cc3333;
+}
+
+form{
+    margin:5% auto;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+#city{
+    width:28.1%;
+}
+textarea{
+    width: 25.5%;
+}
+body{
+    background-color: #336B87;
+}

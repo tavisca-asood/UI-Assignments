@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Registration Form
+    </title>
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+
+<body>
+    <center>
+            <input type=text placeholder="First Name" id="first-name" autofocus required>
+            <div class="invalid">
+                First name should contain alphabets only. Required.
+            </div>
+            <br>
+            <input type="text" placeholder="Last Name" id="last-name">
+            <div class="invalid">
+                Last name should contain alphabets only.
+            </div>
+            <br>
+            <input type="number" placeholder="Phone Number" id="phone" required>
+            <div class="invalid">
+                Please enter a valid Indian phone number. Required.
+            </div>
+            <br>
+            <input type="email" placeholder="Email" id="email" required>
+            <div class="invalid">
+                Please enter a valid email. Required.
+            </div>
+            <br>
+            <textarea type="text" placeholder="Address" id="address" row="5"></textarea>
+            <br>
+            <select id="city" name="city">
+                <option></option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Pune">Pune</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Other">Other</option>
+            </select>
+            </select>
+            <div class="invalid">
+                    Please choose a city.
+                </div>
+            <section id="gender">
+                Gender
+                <input type="radio" value="Male" name="gender">Male<input type="radio" value="Female" name="gender">Female<input type="radio" value="Transgender" name="gender">Trans
+            </section>
+            <div class="invalid">
+                    Please choose a gender.
+                </div>
+            <button id="submit">Submit</button>
+</body>
+<script src="script.js"></script>
+</html>
