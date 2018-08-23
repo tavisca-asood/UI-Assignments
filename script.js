@@ -35,7 +35,8 @@ inputBox.addEventListener("input", function (e) {
             var item = document.createElement("li");
             item.innerHTML = text;
             item.addEventListener("mousedown", function () {
-                inputBox.value = strip_html_tags(this.innerHTML);
+                var text = this.innerHTML.replace('amp;','');
+                inputBox.value = strip_html_tags(text);
                 clearList();
                 clearButton.style.display = "inline";
             })  ;
@@ -72,7 +73,8 @@ inputBox.addEventListener("keydown", function (e) {
     }
     else if (e.keyCode == 13 || e.keyCode == 32) {
         try {
-            inputBox.value = strip_html_tags(document.getElementsByClassName("selected")[0].innerHTML);
+            var text = document.getElementsByClassName("selected")[0].innerHTML.replace('amp;','');
+            inputBox.value = strip_html_tags(text);
             clearList();
             clearButton.style.display = "inline";
         }
