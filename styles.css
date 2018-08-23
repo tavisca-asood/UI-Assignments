@@ -5,6 +5,7 @@ body {
   height: 100%;
   width: 100%;
   margin: 0;
+  background-color: #336B87;
 }
 .autocomplete {
   margin-top: 10%;
@@ -15,12 +16,12 @@ body {
  input {
   border: 1px solid black;
   font-size: 1.2em; 
-  background-color: #f1f1f1;
+  background-color: #A9BFCE;
   padding: 0.5em;
   width: 95%;
 }
 .autocomplete-items {
-  border: 1px solid #d4d4d4;
+  border: 1px solid #336B87;
   border-bottom: none;
   width:95%;
 }
@@ -29,6 +30,7 @@ body {
     padding: 0;
     margin:0;
     display: none;
+    background-color: #90AFC5;
     overflow-y: auto;
     max-height: 12.8em;
 }
@@ -39,16 +41,19 @@ body {
     padding: 0.5em;
 }
 #autocomplete-list li:hover{
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #2A3132;
+    color: #A9BFCE;
 }
 .selected{
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #2A3132;
+    color: #A9BFCE;
 }
 #clear{
     display: none;
     cursor: pointer;
     position: relative;
-    right: 1.2em;
+    right: 1.4em;
+}
+strong{
+    font-size: 1.25em;
 }
