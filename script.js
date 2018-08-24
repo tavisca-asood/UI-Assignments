@@ -3,6 +3,7 @@ var inputBox = document.getElementById("suggestion");
 var unorderedList = document.getElementById("autocomplete-list");
 var clearButton = document.getElementById("clear");
 var currentFocus;
+var count = document.getElementById("count");
 String.prototype.insert = function (index, string) {
     if (index > 0)
         return this.substring(0, index) + string + this.substring(index, this.length);
@@ -35,11 +36,12 @@ inputBox.addEventListener("input", function (e) {
             var item = document.createElement("li");
             item.innerHTML = text;
             item.addEventListener("mousedown", function () {
-                var text = this.innerHTML.replace('amp;','');
+                var text = this.innerHTML.replace('amp;', '');
                 inputBox.value = strip_html_tags(text);
                 clearList();
                 clearButton.style.display = "inline";
-            })  ;
+                count.style.display = "none";
+            });
             unorderedList.appendChild(item);
         }
     }
@@ -49,14 +51,18 @@ inputBox.addEventListener("input", function (e) {
         unorderedList.appendChild(item);
         return;
     }
+    UpdateCount();
+    count.style.display = "inline";
 })
 
 function clearList() {
     while (unorderedList.firstChild) {
         unorderedList.removeChild(unorderedList.firstChild);
     }
+    UpdateCount();
     unorderedList.style.display = "none";
     clearButton.style.display = "none";
+    count.style.display = "none";
 }
 clearButton.addEventListener("click", function () {
     inputBox.value = "";
@@ -73,7 +79,7 @@ inputBox.addEventListener("keydown", function (e) {
     }
     else if (e.keyCode == 13 || e.keyCode == 32) {
         try {
-            var text = document.getElementsByClassName("selected")[0].innerHTML.replace('amp;','');
+            var text = document.getElementsByClassName("selected")[0].innerHTML.replace('amp;', '');
             inputBox.value = strip_html_tags(text);
             clearList();
             clearButton.style.display = "inline";
@@ -108,12 +114,25 @@ function RemoveFocus(key) {
         }
     }
 }
-document.getElementsByTagName("body")[0].addEventListener("mousedown", function () {
-    unorderedList.style.display = "none";
-    inputBox.addEventListener("click", function () {
-        unorderedList.style.display = "block";
-    });
+document.getElementsByTagName("body")[0].addEventListener("mousedown", function (event) {
+    var exceptions = '#suggestion, #autocomplete-list, #count'
+    if (!event.target.matches(exceptions)) {
+        unorderedList.style.display = "none";
+        count.style.display = "none";
+    }
 });
 inputBox.addEventListener("click", function () {
     unorderedList.style.display = "block";
+    if (unorderedList.childElementCount > 0 && unorderedList.childNodes[0].innerHTML != "No Data Found!")
+        count.style.display = "inline";
 });
+function UpdateCount() {
+    if (unorderedList.childElementCount == 1) {
+        count.innerHTML = " Match Found!";
+    }
+    else {
+        count.innerHTML = " Matches Found!";
+    }
+    var matches = "<strong>" + unorderedList.childElementCount + "</strong>";
+    count.innerHTML = count.innerHTML.insert(0, matches);
+}

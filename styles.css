@@ -59,3 +59,8 @@ li{
 strong{
     font-size: 1.25em;
 }
+#count{
+    display: none;
+    font-size: 0.7em;
+    color: #ffffff;
+}
