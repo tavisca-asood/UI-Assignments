@@ -40,12 +40,7 @@ li{
     border : 1px solid #d4d4d4;
     padding: 0.5em;
 }
-#autocomplete-list li:hover{
-    background-color: #2A3132;
-    color: #A9BFCE;
-    padding: 0.9em;
-}
-.selected{
+#autocomplete-list li:hover, .selected{
     background-color: #2A3132;
     color: #A9BFCE;
     padding: 0.9em;
