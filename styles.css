@@ -20,7 +20,7 @@ input:required{
 }
 input:focus:invalid, input:focus:invalid:focus{
     color: #cc3333;
-    border-color: #cc3333;
+    border-color: #CC3333;
 }
 .invalid{
     display: none;
